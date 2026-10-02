@@ -3,93 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101827">
-  <meta name="description" content="Una pequeña pelotita interactiva para soltar el estrés.">
-  <title>Pelotita Antiestrés</title>
-  <link rel="stylesheet" href="styles.css">
+  <title>Prueba Pelotita</title>
 </head>
 
 <body>
-  <div class="ambient ambient-1"></div>
-  <div class="ambient ambient-2"></div>
-  <div class="ambient ambient-3"></div>
 
-  <main class="app-container">
-    <section class="stress-card">
-      <div class="topbar">
-        <div>
-          <span class="eyebrow">PELOTITA ANTIESTRÉS</span>
-          <h1>Hola, Mei.</h1>
-          <p class="subtitle">
-            Soy tu pelotita antiestrés. ¡Aplástame las veces que necesites!
-          </p>
-        </div>
+  <h1>🔥 Pelotita funcionando</h1>
 
-        <button id="soundToggle" class="icon-button" type="button"
-                aria-label="Activar o desactivar sonido">
-          <span id="soundIcon">🔊</span>
-        </button>
-      </div>
+  <p>Si puedes leer esto en el teléfono, GitHub Pages está funcionando.</p>
 
-      <div class="ball-stage" id="ballStage">
-        <div class="breath-ring ring-1"></div>
-        <div class="breath-ring ring-2"></div>
-        <div class="breath-ring ring-3"></div>
+  <button onclick="alert('JavaScript funciona')">
+    Probar JavaScript
+  </button>
 
-        <div id="stressBall" class="stress-ball" role="button" tabindex="0"
-             aria-label="Pelotita antiestrés. Mantén presionada para apretarla.">
-          <div class="ball-shine"></div>
-          <div class="ball-face">
-            <span class="eye eye-left"></span>
-            <span class="eye eye-right"></span>
-            <span class="mouth"></span>
-          </div>
-        </div>
-
-        <div class="instruction" id="instruction">
-          <strong>Presiona y mantén</strong>
-          <span>para liberar tensión</span>
-        </div>
-      </div>
-
-      <div class="breathing-area">
-        <div class="breathing-label" id="breathingLabel">RESPIRA</div>
-        <div class="breathing-text" id="breathingText">Inhala lentamente</div>
-        <div class="progress-track">
-          <div class="progress-bar-custom" id="breathingProgress"></div>
-        </div>
-      </div>
-
-      <div class="controls">
-        <button id="breatheButton" class="btn btn-primary-custom" type="button">
-          <span>◌</span> Respiración guiada
-        </button>
-
-        <button id="resetButton" class="btn btn-secondary-custom" type="button">
-          Reiniciar
-        </button>
-      </div>
-
-      <div class="stats">
-        <div class="stat">
-          <span class="stat-value" id="squeezeCount">0</span>
-          <span class="stat-label">apretones</span>
-        </div>
-
-        <div class="stat-divider"></div>
-
-        <div class="stat">
-          <span class="stat-value" id="stressLevel">0%</span>
-          <span class="stat-label">tensión liberada</span>
-        </div>
-      </div>
-
-      <p class="footer-message" id="footerMessage">
-        No tienes que resolver todo ahora. Solo suelta un poco.
-      </p>
-    </section>
-  </main>
-
-  <script src="script.js"></script>
 </body>
 </html>
