@@ -1,114 +1,91 @@
-/* =========================================================
-   PELOTITA ANTIESTRÉS
-   styles.css
-   ========================================================= */
-
-:root {
-  --bg-1: #0b1220;
-  --bg-2: #111b2d;
-  --card: rgba(19, 30, 49, 0.72);
-  --card-border: rgba(255, 255, 255, 0.09);
-  --text: #f4f7fb;
-  --muted: #aab6c8;
-  --accent: #72e0c2;
-  --accent-2: #8aa7ff;
-  --ball-1: #83efd0;
-  --ball-2: #39b99b;
-  --ball-shadow: rgba(38, 208, 169, 0.30);
-}
-
 * {
   box-sizing: border-box;
 }
 
-html,
-body {
+:root {
+  --bg: #08111f;
+  --card: rgba(16, 24, 39, 0.86);
+  --text: #f7f9fc;
+  --muted: #aab5c7;
+  --primary: #7c8cff;
+  --primary-2: #a78bfa;
+  --line: rgba(255, 255, 255, 0.1);
+  --shadow: 0 30px 80px rgba(0, 0, 0, 0.38);
+}
+
+html {
   min-height: 100%;
+  background: var(--bg);
 }
 
 body {
+  min-height: 100vh;
   margin: 0;
   color: var(--text);
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background:
-    radial-gradient(circle at 20% 20%, rgba(114, 224, 194, 0.08), transparent 30%),
-    radial-gradient(circle at 80% 70%, rgba(138, 167, 255, 0.08), transparent 32%),
-    linear-gradient(135deg, var(--bg-1), var(--bg-2));
+    radial-gradient(circle at 20% 20%, rgba(124, 140, 255, 0.16), transparent 30%),
+    radial-gradient(circle at 80% 75%, rgba(167, 139, 250, 0.13), transparent 32%),
+    linear-gradient(145deg, #08111f 0%, #101827 52%, #0a1020 100%);
   overflow-x: hidden;
 }
 
-/* Ambient background blobs */
+button {
+  font: inherit;
+}
+
 .ambient {
   position: fixed;
-  width: 320px;
-  height: 320px;
+  width: 280px;
+  height: 280px;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.12;
+  filter: blur(70px);
+  opacity: 0.18;
   pointer-events: none;
-  animation: floatAmbient 12s ease-in-out infinite alternate;
+  animation: drift 10s ease-in-out infinite alternate;
 }
 
 .ambient-1 {
-  top: -120px;
-  left: -100px;
-  background: var(--accent);
+  top: -100px;
+  left: -80px;
+  background: #7c8cff;
 }
 
 .ambient-2 {
-  right: -120px;
-  top: 30%;
-  background: var(--accent-2);
-  animation-delay: -4s;
+  right: -100px;
+  top: 35%;
+  background: #a78bfa;
+  animation-delay: -3s;
 }
 
 .ambient-3 {
-  bottom: -160px;
   left: 35%;
-  background: #61d8ff;
-  animation-delay: -8s;
+  bottom: -180px;
+  background: #5eead4;
+  animation-delay: -6s;
 }
 
-@keyframes floatAmbient {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  to {
-    transform: translate3d(30px, -20px, 0) scale(1.12);
-  }
-}
-
-/* Main layout */
 .app-container {
   min-height: 100vh;
-  min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 24px;
+  position: relative;
+  z-index: 1;
 }
 
 .stress-card {
-  width: min(680px, 100%);
-  padding: clamp(24px, 5vw, 42px);
-  border: 1px solid var(--card-border);
+  width: min(720px, 100%);
+  padding: 30px;
+  border: 1px solid var(--line);
   border-radius: 30px;
   background: var(--card);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-  box-shadow:
-    0 30px 90px rgba(0, 0, 0, 0.30),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 
-/* Header */
 .topbar {
   display: flex;
   align-items: flex-start;
@@ -118,409 +95,392 @@ body {
 
 .eyebrow {
   display: inline-block;
-  margin-bottom: 8px;
-  color: var(--accent);
-  font-size: 0.70rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
+  color: #aeb9ff;
 }
 
 h1 {
-  margin: 0;
-  font-size: clamp(1.8rem, 5vw, 2.55rem);
-  line-height: 1.05;
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  margin: 7px 0 4px;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  line-height: 1;
 }
 
 .subtitle {
-  margin: 10px 0 0;
+  margin: 0;
   color: var(--muted);
-  font-size: 0.96rem;
+  line-height: 1.5;
 }
 
 .icon-button {
-  flex: 0 0 auto;
-  width: 44px;
-  height: 44px;
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  width: 46px;
+  height: 46px;
+  border: 1px solid var(--line);
   border-radius: 14px;
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.06);
+  color: white;
   cursor: pointer;
-  transition: transform 180ms ease, background 180ms ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .icon-button:hover {
   transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.11);
 }
 
-/* Ball stage */
 .ball-stage {
-  position: relative;
   min-height: 390px;
-  margin: 10px 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
   overflow: hidden;
   touch-action: none;
   user-select: none;
+  -webkit-user-select: none;
 }
 
 .stress-ball {
-  --scale-x: 1;
-  --scale-y: 1;
-
+  width: 190px;
+  height: 190px;
+  border-radius: 48% 52% 50% 50% / 53% 47% 53% 47%;
   position: relative;
-  z-index: 4;
-  width: clamp(170px, 35vw, 225px);
-  aspect-ratio: 1;
-  border-radius: 50%;
+  z-index: 3;
   cursor: grab;
   touch-action: none;
-  transform:
-    translate3d(var(--x, 0px), var(--y, 0px), 0)
-    scaleX(var(--scale-x))
-    scaleY(var(--scale-y));
   background:
-    radial-gradient(circle at 31% 25%, rgba(255, 255, 255, 0.62) 0 3%, transparent 15%),
-    radial-gradient(circle at 38% 32%, var(--ball-1), var(--ball-2) 65%, #269477 100%);
+    radial-gradient(circle at 32% 24%, #dbe0ff 0 5%, transparent 18%),
+    radial-gradient(circle at 45% 35%, #a5b0ff 0%, #7c8cff 45%, #625bd6 100%);
   box-shadow:
-    0 28px 55px var(--ball-shadow),
-    inset -18px -22px 35px rgba(0, 75, 64, 0.18),
-    inset 12px 12px 24px rgba(255, 255, 255, 0.14);
-  transition:
-    box-shadow 220ms ease,
-    filter 220ms ease;
-  animation: ballIdle 3.8s ease-in-out infinite;
+    inset -20px -24px 35px rgba(38, 32, 105, 0.35),
+    inset 16px 15px 28px rgba(255, 255, 255, 0.25),
+    0 25px 55px rgba(79, 70, 229, 0.35);
+  transform: scale(1);
+  transition: transform 0.25s cubic-bezier(.2, .9, .25, 1.4),
+              border-radius 0.25s ease;
 }
 
-.stress-ball:hover {
-  filter: brightness(1.04);
-}
-
-.stress-ball.is-pressed {
+.stress-ball.pressed {
   cursor: grabbing;
-  animation: none;
-  box-shadow:
-    0 20px 45px rgba(38, 208, 169, 0.22),
-    inset -25px -18px 35px rgba(0, 75, 64, 0.24),
-    inset 14px 12px 26px rgba(255, 255, 255, 0.16);
-}
-
-@keyframes ballIdle {
-  0%, 100% {
-    transform:
-      translate3d(var(--x, 0px), var(--y, 0px), 0)
-      scaleX(var(--scale-x))
-      scaleY(var(--scale-y))
-      rotate(-1deg);
-  }
-
-  50% {
-    transform:
-      translate3d(var(--x, 0px), calc(var(--y, 0px) - 6px), 0)
-      scaleX(var(--scale-x))
-      scaleY(var(--scale-y))
-      rotate(1deg);
-  }
+  transform: scale(1.12, 0.82) rotate(-3deg);
+  border-radius: 58% 42% 55% 45% / 42% 58% 45% 55%;
 }
 
 .ball-shine {
   position: absolute;
-  top: 17%;
-  left: 21%;
-  width: 24%;
-  height: 14%;
+  width: 48px;
+  height: 30px;
+  top: 28px;
+  left: 35px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.22);
-  filter: blur(3px);
-  transform: rotate(-28deg);
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(-25deg);
+  filter: blur(2px);
 }
 
 .ball-face {
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
-  pointer-events: none;
+  align-items: center;
 }
 
 .eye {
   position: absolute;
-  top: 43%;
   width: 12px;
   height: 17px;
+  top: 73px;
   border-radius: 50%;
-  background: rgba(5, 58, 50, 0.65);
-  transition: height 160ms ease;
+  background: #161936;
+  transition: height 0.2s ease, transform 0.2s ease;
 }
 
 .eye-left {
-  left: 35%;
+  left: 66px;
 }
 
 .eye-right {
-  right: 35%;
+  right: 66px;
+}
+
+.stress-ball.pressed .eye {
+  height: 8px;
+  transform: translateY(4px);
 }
 
 .mouth {
   position: absolute;
+  width: 34px;
+  height: 17px;
   left: 50%;
-  top: 54%;
-  width: 30px;
-  height: 14px;
-  border-bottom: 3px solid rgba(5, 58, 50, 0.55);
-  border-radius: 0 0 30px 30px;
+  top: 105px;
   transform: translateX(-50%);
-  transition: transform 180ms ease;
+  border-bottom: 4px solid #161936;
+  border-radius: 0 0 50% 50%;
 }
 
-.stress-ball.is-pressed .eye {
-  height: 8px;
-  top: 47%;
-}
-
-.stress-ball.is-pressed .mouth {
-  transform: translateX(-50%) scaleX(0.75);
-}
-
-/* Rings */
-.breath-ring {
-  position: absolute;
-  width: 260px;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  border: 1px solid rgba(114, 224, 194, 0.08);
-  pointer-events: none;
-}
-
-.ring-1 {
-  animation: breatheRing 5s ease-in-out infinite;
-}
-
-.ring-2 {
-  width: 330px;
-  animation: breatheRing 5s ease-in-out -1.2s infinite;
-}
-
-.ring-3 {
-  width: 410px;
-  animation: breatheRing 5s ease-in-out -2.4s infinite;
-}
-
-@keyframes breatheRing {
-  0%, 100% {
-    transform: scale(0.86);
-    opacity: 0.15;
-  }
-
-  50% {
-    transform: scale(1);
-    opacity: 0.55;
-  }
+.stress-ball.pressed .mouth {
+  width: 26px;
+  height: 9px;
+  top: 108px;
+  border-bottom-width: 3px;
 }
 
 .instruction {
   position: absolute;
-  z-index: 5;
-  bottom: 20px;
+  bottom: 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 3px;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   pointer-events: none;
-  transition: opacity 200ms ease, transform 200ms ease;
+  transition: opacity 0.2s ease;
 }
 
 .instruction strong {
-  color: var(--text);
-  font-size: 0.92rem;
+  color: white;
 }
 
-.ball-stage.is-active .instruction {
+.stress-ball.pressed ~ .instruction {
   opacity: 0;
-  transform: translateY(6px);
 }
 
-/* Breathing section */
+.breath-ring {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  border: 1px solid rgba(164, 174, 255, 0.18);
+  opacity: 0.55;
+  animation: breathe 6s ease-in-out infinite;
+}
+
+.ring-2 {
+  width: 300px;
+  height: 300px;
+  animation-delay: -2s;
+  opacity: 0.35;
+}
+
+.ring-3 {
+  width: 360px;
+  height: 360px;
+  animation-delay: -4s;
+  opacity: 0.2;
+}
+
 .breathing-area {
+  margin-top: 4px;
   text-align: center;
-  margin-top: -3px;
 }
 
 .breathing-label {
-  color: var(--accent);
-  font-size: 0.68rem;
+  color: #aeb9ff;
+  font-size: 0.7rem;
   font-weight: 800;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
 }
 
 .breathing-text {
-  min-height: 28px;
-  margin-top: 5px;
+  margin: 4px 0 10px;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 0.9rem;
 }
 
 .progress-track {
-  width: min(270px, 80%);
-  height: 4px;
-  margin: 8px auto 0;
+  height: 5px;
+  width: min(360px, 90%);
+  margin: auto;
   overflow: hidden;
-  border-radius: 99px;
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
 }
 
 .progress-bar-custom {
-  width: 0%;
   height: 100%;
+  width: 0%;
   border-radius: inherit;
-  background: linear-gradient(90deg, var(--accent-2), var(--accent));
-  transition: width 100ms linear;
+  background: linear-gradient(90deg, var(--primary), var(--primary-2));
+  transition: width 0.1s linear;
 }
 
-/* Buttons */
 .controls {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-top: 24px;
+  flex-wrap: wrap;
 }
 
 .btn {
-  min-height: 44px;
+  min-height: 46px;
+  padding: 0 18px;
+  border: 0;
   border-radius: 13px;
-  padding: 9px 17px;
+  cursor: pointer;
   font-weight: 700;
-  font-size: 0.85rem;
-  transition: transform 160ms ease, opacity 160ms ease, background 160ms ease;
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
 
 .btn:hover {
   transform: translateY(-2px);
-}
-
-.btn:active {
-  transform: translateY(0) scale(0.98);
+  filter: brightness(1.08);
 }
 
 .btn-primary-custom {
-  border: 0;
-  color: #09251f;
-  background: var(--accent);
-}
-
-.btn-primary-custom:hover {
-  color: #09251f;
-  background: #8bead3;
+  color: white;
+  background: linear-gradient(135deg, #7182ff, #8b70e8);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.2);
 }
 
 .btn-secondary-custom {
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.05);
+  color: #dce1ec;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--line);
 }
 
-.btn-secondary-custom:hover {
-  color: var(--text);
-  background: rgba(255, 255, 255, 0.09);
-}
-
-/* Stats */
 .stats {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   gap: 28px;
-  margin-top: 26px;
+  margin-top: 28px;
 }
 
 .stat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
+  text-align: center;
 }
 
 .stat-value {
-  font-size: 1.05rem;
+  display: block;
+  font-size: 1.5rem;
   font-weight: 800;
 }
 
 .stat-label {
   color: var(--muted);
-  font-size: 0.70rem;
+  font-size: 0.75rem;
 }
 
 .stat-divider {
   width: 1px;
-  height: 32px;
-  background: rgba(255, 255, 255, 0.10);
+  height: 35px;
+  background: var(--line);
 }
 
 .footer-message {
-  max-width: 440px;
-  margin: 26px auto 0;
-  color: rgba(170, 182, 200, 0.75);
-  font-size: 0.76rem;
+  margin: 24px auto 0;
+  max-width: 480px;
+  color: #8f9aae;
+  font-size: 0.82rem;
   line-height: 1.5;
   text-align: center;
 }
 
-/* Accessibility */
-button:focus-visible,
-.stress-ball:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 4px;
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(0.88);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.55;
+  }
 }
 
-/* Mobile */
-@media (max-width: 575px) {
+@keyframes drift {
+  from {
+    transform: translate3d(-10px, -8px, 0) scale(1);
+  }
+  to {
+    transform: translate3d(20px, 18px, 0) scale(1.08);
+  }
+}
+
+@media (max-width: 600px) {
   .app-container {
     padding: 12px;
-    align-items: stretch;
   }
 
   .stress-card {
-    min-height: calc(100svh - 24px);
+    padding: 22px 17px;
     border-radius: 24px;
-    padding: 22px 18px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  }
+
+  .topbar {
+    gap: 12px;
+  }
+
+  h1 {
+    font-size: 2.15rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
   }
 
   .ball-stage {
     min-height: 330px;
   }
 
-  .controls {
-    flex-wrap: wrap;
+  .stress-ball {
+    width: 160px;
+    height: 160px;
   }
 
-  .btn {
-    flex: 1 1 auto;
+  .eye {
+    top: 62px;
+  }
+
+  .eye-left {
+    left: 56px;
+  }
+
+  .eye-right {
+    right: 56px;
+  }
+
+  .mouth {
+    top: 91px;
+  }
+
+  .stress-ball.pressed .mouth {
+    top: 94px;
+  }
+
+  .ball-shine {
+    width: 40px;
+    height: 25px;
+    top: 24px;
+    left: 29px;
+  }
+
+  .ring-1 {
+    width: 205px;
+    height: 205px;
+  }
+
+  .ring-2 {
+    width: 260px;
+    height: 260px;
   }
 
   .ring-3 {
-    width: 340px;
+    width: 315px;
+    height: 315px;
   }
 }
 
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.001ms !important;
+    animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -6,13 +6,6 @@
   <meta name="theme-color" content="#101827">
   <meta name="description" content="Una pequeña pelotita interactiva para soltar el estrés.">
   <title>Pelotita Antiestrés</title>
-
-  <!-- Bootstrap 5 -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
-
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -32,7 +25,8 @@
           </p>
         </div>
 
-        <button id="soundToggle" class="icon-button" type="button" aria-label="Activar o desactivar sonido">
+        <button id="soundToggle" class="icon-button" type="button"
+                aria-label="Activar o desactivar sonido">
           <span id="soundIcon">🔊</span>
         </button>
       </div>
@@ -42,13 +36,8 @@
         <div class="breath-ring ring-2"></div>
         <div class="breath-ring ring-3"></div>
 
-        <div
-          id="stressBall"
-          class="stress-ball"
-          role="button"
-          tabindex="0"
-          aria-label="Pelotita antiestrés. Mantén presionada para apretarla."
-        >
+        <div id="stressBall" class="stress-ball" role="button" tabindex="0"
+             aria-label="Pelotita antiestrés. Mantén presionada para apretarla.">
           <div class="ball-shine"></div>
           <div class="ball-face">
             <span class="eye eye-left"></span>
@@ -65,9 +54,7 @@
 
       <div class="breathing-area">
         <div class="breathing-label" id="breathingLabel">RESPIRA</div>
-        <div class="breathing-text" id="breathingText">
-          Inhala lentamente
-        </div>
+        <div class="breathing-text" id="breathingText">Inhala lentamente</div>
         <div class="progress-track">
           <div class="progress-bar-custom" id="breathingProgress"></div>
         </div>
